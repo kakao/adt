@@ -1,0 +1,5 @@
+CREATE TABLE `%s`.`adt_test_3` (
+	id INT(11) NOT NULL AUTO_INCREMENT,
+	str TEXT,
+	PRIMARY KEY(id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

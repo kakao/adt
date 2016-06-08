@@ -1,0 +1,21 @@
+{
+    "host": "adt-test-my001.example.com",
+    "port": 3306,
+    "user": "adt",
+    "password": "adt",
+    "handlerClassName": "com.kakao.adt.handler.msr.MSRBinlogHandler",
+    "databaseList": [
+        "adt_test"
+    ],
+    "mysqlSlaveServerId": 13579,
+    "binlogFileName": "",
+    "binlogFilePosition": 4,
+
+    "taskQueueCount": 100000,
+    "eventBufferSize": 10000,
+    "workerThreadCorePoolSize": 1024,
+
+    "eventBufferInputFailSleepTime": 200,
+    "taskQueueMaxCount": 50,
+    "taskQueueInputFailSleepTime": 200
+}
