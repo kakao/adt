@@ -44,8 +44,8 @@ Depending on the use, it is not only for a one-time use, also can be used as liv
 ###### In English,
 
 - Methods that handle collected data
-- ** You should implement your own data handler **
-- you should consider **thread-safe** when implement methods, because the method named **processData** may be invoked by multiple threads, so .
+- **You should implement your own data handler**
+- you should consider **thread-safe** when implement methods, because the method named **processData** may be invoked by multiple threads.
 
 ```java
 // Please see com.kakao.adt.handler package
@@ -154,22 +154,22 @@ SELECT * FROM ? [ WHERE id > ? ] LIMIT ? [ FOR UPDATE ]
 ### Custom Handler 구현 (Implement Your Custom Handler)
 
 1. Maven 프로젝트 생성
-2. pom.xml을 열어서 ** adt-handler-parent ** 프로젝트 상속받도록 설정
+2. pom.xml을 열어서 **adt-handler-parent** 프로젝트 상속받도록 설정
 3. Handler 구현
   - Binlog 수집을 하려면 **MysqlBinlogProcessorHandler** 인터페이스 구현
   - Table 크롤링을 하려면 **MysqlCrawlProcessorHandler** 인터페이스 구현
 
-> 자세한 구현은 ** adt-handler-mysql-shard-rebalancer ** 프로젝트를 참고하세요.
+> 자세한 구현은 **adt-handler-mysql-shard-rebalancer** 프로젝트를 참고하세요.
 
 ###### In English,
 
 1. Create new Maven project
-2. Open pom.xml file, and inherit ** adt-handler-parent **
+2. Open pom.xml file, and inherit **adt-handler-parent**
 3. Implement handler(s)
   - Implement **MysqlBinlogProcessorHandler** interface if you want to handle binary logs
   - Implement **MysqlCrawlProcessorHandler** interface if you want to use table crawler
 
-> Refer to ** adt-handler-mysql-shard-rebalancer **
+> Refer to **adt-handler-mysql-shard-rebalancer**
 
 ```xml
 <!-- adt-handler-parent 상속 -->
@@ -300,8 +300,8 @@ mvn test
 
 ### System Integrated Test
 
-> 통합 테스트는 ** adt-handler-mysql-shard-rebalancer **를 사용합니다.<br/>
-> Integrated test uses ** adt-handler-mysql-shard-rebalancer **.
+> 통합 테스트는 **adt-handler-mysql-shard-rebalancer**를 사용합니다.<br/>
+> Integrated test uses **adt-handler-mysql-shard-rebalancer**.
 
 1. Go to directory **adt-test/msr_test_script**
 ```sh
