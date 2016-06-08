@@ -9,7 +9,7 @@
 **MySQL의 실시간으로 변경되는 데이터**를 가져와서 가공 후 다른 저장소에 저장할 목적으로 만든 툴입니다.
 사용하기에 따라 일회성 용도로 사용할 수도 있고, 무중단 실시간 마이그레이션 용도로 사용할 수도 있습니다.
 
-Using ADT, You can receive ** all real time changes of MySQL **, transform the received data, and load to other data storage.
+Using ADT, You can receive **all real time changes of MySQL**, transform the received data, and load to other data storage.
 Depending on the use, it is not only for a one-time use, also can be used as live migration purposes.
 
 ---------------------------------------------------------
