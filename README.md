@@ -40,18 +40,22 @@ Depending on the use, it is not only for a one-time use, also can be used as liv
 - 수집한 데이터를 변환, 적재 등을 하는 메소드
 - **사용자가 직접 구현해야 함**
 - **processData** 메소드는 여러 스레드에 의해 동시에 호출될 수 있으므로 **thread-safe** 고려 필요
+- 예시의 그림의 handler는 한 서버에서 2개의 샤드로 분리하는 일을 수행함
 
 ###### In English,
 
 - Methods that handle collected data
 - **You should implement your own data handler**
 - you should consider **thread-safe** when implement methods, because the method named **processData** may be invoked by multiple threads.
+- In the picture below, the example handler split into 2 shards.
 
 ```java
 // Please see com.kakao.adt.handler package
 void processData(MysqlBinlogData data) throws Exception;
 void processData(MysqlCrawlData data) throws Exception;
 ```
+
+![example handler](image/shard_split_handler.png)
 
 ### Table Crawler
 
@@ -73,20 +77,30 @@ void processData(MysqlCrawlData data) throws Exception;
 SELECT * FROM ? [ WHERE id > ? ] LIMIT ? [ FOR UPDATE ]
 ```
 
+![crawler logic](image/mysql_crawler.png)
+
+
 ### Binary Log Receiver
 
 - MySQL Replication Protocol을 이용해 Binary Log(row format) 수집
 - 수집한 데이터는 사용자가 구현한 Data Handler로 전달
 - 병렬 처리
-  - Primary Key나 Unique Key 값이 겹치는 row들은 순차적으로 처리
+  - 그림을 보면, enqueue는 하나의 스레드가 하지만, dequeue는 각 queue를 담당하는 스레드가 실행
+  - 같은 queue에 있으면 PK 혹은 UK 값이 겹쳐서 서로 연관이 있는 이벤트임
+  - PK나 UK 값이 겹치는 row들은 순차적으로 처리
   - 연관성이 없는 row 간에는 병렬로 처리
 
 ###### In English,
 - Receive binary logs(row format) using MySQL Replication Protocol
 - Selected data is passed to data handler that you implemented
 - Parallel Execution
-  - If values of unique key(include primary key) are the same between two row events, then the events are passed to your handler sequentially.
+  - In picture, events are enqueued by a single thread, but dequeued by multiple threads.
+  - Only one thread for a queue
+  - If same queue, then it means events should be processed sequentially.
+  - In other words, if values of unique key(include primary key) are the same between two row events, then the events are passed to your handler sequentially.
   - Otherwise, events are passed to the handler in parallel.
+
+![binlog processor logic](image/mysql_binlog_proc.png)
 
 ---------------------------------------------------------
 
