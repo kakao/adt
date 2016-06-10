@@ -117,7 +117,7 @@ SELECT * FROM ? [ WHERE id > ? ] LIMIT ? [ FOR UPDATE ]
 - 기타 궁금하신 점은 이슈 트래커를 통해 질문해주세요.
 
 ###### In English,
-- MySQL binary log format should be full(not minimal) `row` format. `mixed` or `statement` are unsupported).
+- MySQL binary log format should be full(not minimal) `row` format. `mixed` or `statement` are unsupported.
 - All table should have primary key index.
 - About data handler,
   - You must implement your own data handler, because `ADT` just receive/collect data, and invoke data handler.
