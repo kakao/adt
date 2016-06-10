@@ -440,3 +440,9 @@ But, finally all data will be loaded include automatically changed data,
 and data integrity problem will be solved.
 
 So, we consider only two constraints: primary key and unique key.
+
+---
+
+Special Thanks to Chan.Chan(성동찬)
+
+End of Document
