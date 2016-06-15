@@ -121,7 +121,6 @@ SELECT * FROM ? [ WHERE id > ? ] LIMIT ? [ FOR UPDATE ]
 > Refer to **adt-handler-mysql-shard-rebalancer**
 
 ```xml
-<!-- adt-handler-parent 상속 -->
 <!-- inherit adt-handler-parent -->
 
 <!-- pom.xml -->
