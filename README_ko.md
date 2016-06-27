@@ -321,6 +321,6 @@ Binlog에 저장된 데이터 그 자체가 이미 domain integrity를 만족하
 
 ---
 
-Special Thanks to 성동찬(Chan)
+Special Thanks to [성동찬(Chan)](http://gywn.net/)
 
 End of Document

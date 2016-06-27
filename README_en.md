@@ -325,6 +325,6 @@ So, we consider only two constraints: primary key and unique key.
 
 ---
 
-Special Thanks to Chan(성동찬)
+Special Thanks to [Chan(성동찬)](http://gywn.net/)
 
 End of Document
